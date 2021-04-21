@@ -279,6 +279,15 @@ Blockly.Msg.LOGIC_BOOLEAN_FALSE = 'false';
 /// tooltip - Indicates that the block returns either of the two possible [https://en.wikipedia.org/wiki/Truth_value logical values].
 Blockly.Msg.LOGIC_BOOLEAN_TOOLTIP = 'Returns either true or false.';
 
+/// url - Information about the logic values ''true'' and ''false''.  Consider using the translation of [https://en.wikipedia.org/wiki/Truth_value https://en.wikipedia.org/wiki/Truth_value] if it exists in your language.
+Blockly.Msg.PINO_BOOLEAN_HELPURL = 'https://github.com/google/blockly/wiki/Logic#values';
+/// block text - The word for the [https://en.wikipedia.org/wiki/Truth_value logical value] ''true''.
+Blockly.Msg.PINO_BOOLEAN_TRUE = 'true';
+/// block text - The word for the [https://en.wikipedia.org/wiki/Truth_value logical value] ''false''.
+Blockly.Msg.PINO_BOOLEAN_FALSE = 'false';
+/// tooltip - Indicates that the block returns either of the two possible [https://en.wikipedia.org/wiki/Truth_value logical values].
+Blockly.Msg.PINO_BOOLEAN_TOOLTIP = 'Returns either true or false.';
+
 /// url - Provide a link to the translation of [https://en.wikipedia.org/wiki/Nullable_type https://en.wikipedia.org/wiki/Nullable_type], if it exists in your language; otherwise, do not worry about translating this advanced concept.
 Blockly.Msg.LOGIC_NULL_HELPURL = 'https://en.wikipedia.org/wiki/Nullable_type';
 /// block text - In computer languages, ''null'' is a special value that indicates that no value has been set.  You may use your language's word for "nothing" or "invalid".

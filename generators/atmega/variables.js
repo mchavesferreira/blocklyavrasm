@@ -33,7 +33,7 @@ Blockly.Z80['variables_get'] = function(block) {
   // Variable getter.
   var code = Blockly.Z80.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
-  code = 'ldi R16, ' + code + '\n';	 
+  code = 'lds R16, ' + code + '\n';	 
   return [code, Blockly.Z80.ORDER_ATOMIC];
 };
 

@@ -33,7 +33,7 @@ Blockly.Z80['math_number'] = function(block) {
   // Numeric value.
   var code = parseInt(block.getFieldValue('NUM'));
   return [ '' +
-		'ldi R16, '  + code + '; carregar valor em R16\n', 
+		'ldi R16, '  + code + '; carrega valor no registrador\n', 
 		Blockly.Z80.ORDER_ATOMIC
   ];
 };
@@ -42,10 +42,10 @@ Blockly.Z80['math_arithmetic'] = function(block) {
   // Basic arithmetic operators, and power.
   var OPERATORS = {
     'ADD': ['add R16, R17', Blockly.Z80.ORDER_ATOMIC],
-    'MINUS': ['sub R16, R17\nor a\nsbc hl, de', Blockly.Z80.ORDER_ATOMIC],
+    'MINUS': ['sub R16, R17\n;em construcao', Blockly.Z80.ORDER_ATOMIC],
     'MULTIPLY': ['call Multiply', Blockly.Z80.ORDER_ATOMIC],
     'DIVIDE': ['call Divide', Blockly.Z80.ORDER_ATOMIC],
-    'POWER': ['or R16, R17', Blockly.Z80.ORDER_COMMA]  // Handle power separately.
+    'POWER': [';em construcao', Blockly.Z80.ORDER_COMMA]  // Handle power separately.
   };
   
   var opType = block.getFieldValue('OP');
@@ -66,7 +66,7 @@ Blockly.Z80['math_arithmetic'] = function(block) {
 		 ' ldi R17, ' +
 		argument1 +
 		 // Restores first argument into DE  pop de '\n' +
-		operator + '\n'; 
+		operator + ' ; \n'; 
 		
   return [code, order];
 };
