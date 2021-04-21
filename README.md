@@ -1,11 +1,11 @@
 blockly-z80
 ===========
 
-Blockly adapted to generate Z80 code. 
+Blockly adapted to generate ATMEGA 328P code. 
 
 You can see an online demo at 
 
-http://www.haroldo-ok.com/blockly-z80/blockly-z80/index.html
+
 
 Work in progress; commands implemented so far:
 - Numeric constants;
@@ -20,5 +20,7 @@ Work in progress; commands implemented so far:
 
 Take a look at index.html to see what it can do: the demo provides you with a [Blockly] editor that generates Z80 assembly code in real time as it is modified; the code is shown on a side panel; the generated ASM code is also automatically assembled using [bitz80]. The generated Sega Master System ROM is fully functional can be dowloaded with a simple button click.
 
+Fonte:
 [Blockly]: https://github.com/google/blockly
 [bitz80]: https://code.google.com/p/bitz80/
+http://www.haroldo-ok.com/blockly-z80/blockly-z80/index.html
