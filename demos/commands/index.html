@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Blockly-AVR Atmega</title>
+		<title>Blockly-Atmega</title>
 		<link rel="stylesheet" type="text/css" href="../../js/prism.css" />
 		<link rel="stylesheet" type="text/css" href="blockly-atmega.css" />
 	</head>
@@ -15,16 +15,15 @@
 		<div id="output-container">
 			<div id="button-container">
 				<p>
-						<select id="hardware-type">
+				<select id="hardware-type">
 						<option value="sms" selected="selected">Sega Master System</option>
 						<option value="sg">SG-1000</option>
 					</select>
-					<button id="save-rom">Export ROM</button>
-				
+					<button id="save-rom">Export ROM</button>  
 				</p>
 				<p>
-					<button id="save-design">Save design</button>
-					<button id="load-design">Load design</button>
+					<button id="save-design">Salvar Projeto</button>
+					<button id="load-design">Abrir Projeto</button>
 					<input id="design-file-input" type="file" accept="application/zip" style="display: none" />
 				</p>
 			</div>
@@ -39,7 +38,7 @@
 		<script type="text/javascript" src="../../js/underscore-min.js"> </script>
 
 		<script type="text/javascript" src="../../js/prism.nolang.js"> </script>
-		<script type="text/javascript" src="../../js/prism.z80asm.js"> </script>
+		<script type="text/javascript" src="../../js/prism.atmegaasm.js"> </script>
 
 		<script type="text/javascript" src="../../js/zip/zip.js"> </script>
 		<script type="text/javascript" src="../../js/zip/inflate.js"> </script>

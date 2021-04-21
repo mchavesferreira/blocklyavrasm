@@ -110,7 +110,7 @@ Blockly.Z80.init = function() {
   for (var x = 0; x < variables.length; x++) {
     defvars[x] = '.EQU ' + Blockly.Z80.variableDB_.getName(variables[x], Blockly.Variables.NAME_TYPE) + 
 		'\t= $RAM_Var + $' + ramAddr.toString(16).toUpperCase() +
-		'\t ; memoria ram ' + variables[x];
+		'\t; ' + variables[x];
 	ramAddr += 1;
   }
   Blockly.Z80.definitions_['variables'] = defvars.join('\n');
@@ -142,7 +142,6 @@ Blockly.Z80.finish = function(code) {
   var generatedSource =
 		'\."Exemplo de programa assembly AVR"\n\n' +
 		'\tinclude "lib328Pv03.asm"\n\n' +
-		'\t ;$RAM_Var=0x100 inicio da memoria ram livre \n\n' +
 		definitions.join('\n\n') + 
 		'\n\nMAIN: \n' + code + 
 		'\n\nprogram_done:\t \n rjmp program_done' +
@@ -196,7 +195,7 @@ Blockly.Z80.quote_ = function(string) {
   // TODO: This is a quick hack.  Replace with goog.string.quote
   string = string.replace(/\\/g, '\\\\')
                  .replace(/\n/g, '\\\n')
-				 .replace(/'/g, '\\\'')
+                 .replace(/'/g, '\\\'')
                  .replace(/"/g, '\\\"');
   return '\"' + string + '\"';
 };
@@ -288,13 +287,12 @@ Blockly.Z80.optimizeSource_ = function(code) {
 	
 		code = code.replace(/ldi R16,  ldi R16,/mg, 'ldi R16, ');
 		code = code.replace(/ldi R16, ldi R16,/mg, 'ldi R16, ');
-		code = code.replace(/ldi R16, lds R16,/mg, 'lds R16, ');
 		code = code.replace(/ldi R16,   ldi R16,/mg, 'ldi R16, ');
 		code = code.replace(/ldi R17,  ldi R16,/mg, 'ldi R16, ');
 		code = code.replace(/ldi R17,   ldi R16,/mg, 'ldi R16, ');
 		code = code.replace(/ldi R17, ldi R16,/mg, 'ldi R17,');
 		code = code.replace(/ldi R16,  ldi R16,/mg, 'ldi R16,');
-	
+		
 		
 	/*
 		-- Turns --

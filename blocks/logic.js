@@ -365,22 +365,6 @@ Blockly.Blocks['logic_boolean'] = {
   }
 };
 
-Blockly.Blocks['pino_boolean'] = {
-  init: function() {
-
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["(8)PB0", "B,0"], ["(9)PB1", "B,1"], ["(10)PB2", "B,2"]]), "pino_in");
-    //this.setInputsInline(true);
-    this.setOutput(true, "Boolean");
-    this.setHelpUrl('http://www.example.com/');
-    this.setColour(120);
-    this.setPreviousStatement(true, null);  // acrescentadp
-    this.setNextStatement(true, null);  // acrescentado
-    this.setTooltip("Le o status do pino HIGH ou LOW ");
-  }
-};
-
-
 Blockly.Blocks['logic_null'] = {
   /**
    * Block for null data type.

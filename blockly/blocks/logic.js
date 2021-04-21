@@ -365,10 +365,6 @@ Blockly.Blocks['logic_boolean'] = {
   }
 };
 
-
-
-
-
 Blockly.Blocks['logic_null'] = {
   /**
    * Block for null data type.

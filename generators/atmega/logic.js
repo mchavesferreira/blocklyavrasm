@@ -31,8 +31,8 @@ goog.require('Blockly.Z80');
 
 Blockly.Z80['controls_if'] = function(block) {
   // If/elseif/else condition.
-  var setHlFalse = 'bclr 6 ; limpa flag T SREG\n' +   
-                   'bld r1,2 ; copia flag T SREG para bit 2 do R1 \n' ;
+  var setHlFalse = 'bclr 6 ; limpa flag T \n' +   
+                   'bld r1,2 ; copia flag T para r1 \n' ;
 
   var n = 0;
   var argument = Blockly.Z80.valueToCode(block, 'IF' + n,
@@ -46,7 +46,7 @@ Blockly.Z80['controls_if'] = function(block) {
 	  var ifNot = Blockly.Z80.variableDB_.getDistinctName('if_not_', Blockly.Variables.NAME_TYPE);
 
 	  return argument +
-			'sbrc r1,2 ;pula prox linha se flag=0 (F)\n' +
+			'sbrc r1,2 ; pula próxima linha se flag igual a zero (falso)\n' +
 			'rjmp ' + ifYes + '\n' +
 			'rjmp ' + ifNot + '\n' +
 			ifYes + ':\n' +
@@ -74,22 +74,22 @@ Blockly.Z80['controls_if'] = function(block) {
 Blockly.Z80['logic_compare'] = function(block) {
   // Comparison operator.
   var OPERATORS = {
-    'EQ': 'CompareR18eqR19 ; em construcao',
-    'NEQ': 'CompareR18neqR19 ; em construcao',
-    'LT': 'CompareR18ltR19 ; em construcao',
-    'LTE': 'CompareR18lteR19 ; em construcao',
-    'GT': 'CompareR18gtR19 ; em construcao',
-    'GTE': 'CompareR18gteR19 ; em construcao'
+    'EQ': 'CompareR18eqR19',
+    'NEQ': 'CompareR18neqR19',
+    'LT': 'CompareR18ltR19',
+    'LTE': 'CompareR18lteR19',
+    'GT': 'CompareR18gtR19',
+    'GTE': 'CompareR18gteR19'
   };
   var operator = OPERATORS[block.getFieldValue('OP')];
   var order = Blockly.Z80.ORDER_ATOMIC;
-  var argument0 = Blockly.Z80.valueToCode(block, 'A', order) || 'bclr 6 ; limpa flag T SREG \n bld r1,2 \n';
-  var argument1 = Blockly.Z80.valueToCode(block, 'B', order) || 'bclr 6  ; limpa flag T SREG \n bld r1,2 \n';
+  var argument0 = Blockly.Z80.valueToCode(block, 'A', order) || 'bclr 6 ; limpa flag T \n bld r1,2 \n';
+  var argument1 = Blockly.Z80.valueToCode(block, 'B', order) || 'bclr 6  ; limpa flag T \n bld r1,2 \n';
   
   var code = ' ldi R16, ' + argument0 +
-		' cp R18,R16 ; copia R16 para R18\n' + // Saves first argument  ldi R17, 0
+		' cp R18,R16 \n' + // Saves first argument  ldi R17, 0
 		' ldi R16, ' + argument1 + 
-		' cp R19,R16 ; copia R16 para R19\n' + // Restores first argument into DE 'clr r16 \n' 
+		' cp R19,R16 \n' + // Restores first argument into DE 'clr r16 \n' 
 		'call ' + operator + '\n'; 
 		
   return [code, order];
@@ -103,8 +103,8 @@ Blockly.Z80['logic_operation'] = function(block) {
   var argument1 = Blockly.Z80.valueToCode(block, 'B', order);
   if (!argument0 && !argument1) {
     // If there are no arguments, then the return value is false.
-    argument0 = 'bclr 6  ; limpa flag T SREG \n bld r1,2 \n';
-    argument1 = 'bclr 6  ; limpa flag T SREG \n bld r1,2 \n';
+    argument0 = 'bclr 6  ; limpa flag T \n bld r1,2 \n';
+    argument1 = 'bclr 6  ; limpa flag T \n bld r1,2 \n';
   } else {
     // Single missing arguments have no effect on the return value.
     var defaultArgument = (operator == 'and') ? 'bset 6 \n bld r1,2 \n ' : 'bclr 6 \n bld r1,2 \n';
@@ -149,25 +149,16 @@ Blockly.Z80['logic_negate'] = function(block) {
   var order = Blockly.Z80.ORDER_ATOMIC;
   var argument0 = Blockly.Z80.valueToCode(block, 'BOOL', order) ||
       'bset 6 ; verdadeiro1 \n';
-  var code = argument0 + 'call BooleanNotHL ; em construcao\n';
+  var code = argument0 + 'call BooleanNotHL\n';
   return [code, order];
 };
 
 Blockly.Z80['logic_boolean'] = function(block) {
   // Boolean values true and false.
-  var value = (block.getFieldValue('BOOL') == 'TRUE') ? 'bset 6 ; seta flag T SREG' : 'bclr 6 ; limpa flag T SREG';
-  var code =  value + '\n' +    ' bld r1,2 ; copia flag T SREG para bit 2 do R1 \n';
+  var value = (block.getFieldValue('BOOL') == 'TRUE') ? 'bset 6 ; seta flag T' : 'bclr 6 ; limpa flag T ';
+  var code =  value + '\n' +    ' bld r1,2 ; copia flag T para r1 \n';
   return [code, Blockly.Z80.ORDER_ATOMIC];
 };
-
-//Blockly.Z80['pino_boolean'] = function(block) {
-  // Boolean values true and false.
-  //var value = (block.getFieldValue('BOOL') == 'TRUE') ? 'sbic pino ; le pino de entrada' : 'bclr 6 ; limpa flag T SREG';
-  //var code =  value + '\n' +    ' bld r1,2 ; copia flag T SREG para bit 2 do R1 \n';
-  //return [code, Blockly.Z80.ORDER_ATOMIC];
-//};
-
-
 
 Blockly.Z80['logic_null'] = function(block) {
   // Null data type.

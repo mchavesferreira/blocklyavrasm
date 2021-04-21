@@ -142,20 +142,6 @@ Blockly.Blocks['pinos_output'] = {
   }
 };
 
-Blockly.Blocks['pino_boolean'] = {
-	init: function() {
-  
-	  this.appendDummyInput()
-		  .appendField(new Blockly.FieldDropdown([["(8)PB0","B,0"], ["(9)PB1","B,1"], ["(10)PB2","B,2"], ["((11)PB3","B,3"], ["(12)PB4","B,4"], ["(13)PB5","B,5"],  ["(A0)PC0","C,0"], ["(A1)PC1","C,1"], ["(A2)PC2","C,2"], ["(A3)PC3","C,3"], ["(A4)PC4","C,4"], ["(A5)PC5","C,5"], ["(0)PD0","D,0"], ["(1)PD1","D,1"], ["(2)PD2","D,2"], ["(3)PD3","D,3"], ["(4)PD4","D,4"], ["(5)PD5","D,5"], ["(6)PD6","D,6"], ["(7)PD7","D,7"]]), "pino_in");
-	  //this.setInputsInline(true);
-	  this.setOutput(true, "Boolean");
-	  this.setHelpUrl('http://www.example.com/');
-	  this.setColour(210);
-	 // this.setPreviousStatement(true, null);  // acrescentadp
-	 // this.setNextStatement(true, null);  // acrescentado
-	  this.setTooltip("Le o status do pino HIGH ou LOW ");
-	}
-  };
 
 
 

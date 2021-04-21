@@ -138,7 +138,7 @@ function checkLoaded() {
 
 $(function(){
 	$("#blockly-editor").attr("src", "blockly-frame.html");
-	$("#bitz80-container").attr("src", "bitatmega-frame.html");
+	$("#bitz80-container").attr("src", "bitz80-frame.html");
 
 	var BLOCKLY_DESIGN_XML_FILENAME = "blockly-design.xml";
 	zip.useWebWorkers = false;

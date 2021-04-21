@@ -98,16 +98,8 @@ Blockly.Z80['pinos_output'] = function(block) {
    return code.join('\n') + '\n';
 };
 
-Blockly.Z80['pino_boolean'] = function(block) {
-	var dropdown_pino_in = block.getFieldValue('pino_in');
-	// TODO: Assemble JavaScript into code variable.
-	var code = [
-	  'sbic PIN' +   dropdown_pino_in + ' ; ler pino ' 
-		
-	  ];
-	// TODO: Change ORDER_NONE to the correct strength.
-	return [code, Blockly.Z80.ORDER_ATOMIC];
-  };
+
+
 
 
 /////    *888    88  88    88  88  888  88  888   8
@@ -123,5 +115,3 @@ Blockly.Z80['define_estado_saida'] = function(block) {
 	return code.join('\n') + '\n';
 };
 
-
-  
