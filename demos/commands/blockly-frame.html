@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../../blockly/blockly_compressed.js"></script>
+    <script type="text/javascript" src="../../blockly/blocks_compressed.js"></script>
+    <script type="text/javascript" src="../../blocks/hardware.js"></script>
+	<script type="text/javascript" src="../../blocks/inputoutput.js"></script>
+
+		
+	<script type="text/javascript" src="../../generators/atmega.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/colour.js"></script>
+		<script type="text/javascript" src="../../generators/atmega/base.js"> </script>
+	<script type="text/javascript" src="../../generators/atmega/lists.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/logic.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/loops.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/math.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/procedures.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/text.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/variables.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/hardware.js"></script>
+	<script type="text/javascript" src="../../generators/atmega/inputoutput.js"></script>
+    <script type="text/javascript" src="../../blockly/msg/js/pt-br.js"></script>
+    <style>
+      html, body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+      .blocklySvg {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script>
+      function init() {
+        Blockly.inject(document.body,
+            {toolbox: document.getElementById('toolbox')});
+        // Let the top-level application know that Blockly is ready.
+        window.parent.blocklyLoaded(Blockly);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <xml id="toolbox" style="display: none">
+	<!--
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+	-->
+<!--      <block type="controls_repeat"></block> -->
+	  <!--
+      <block type="controls_repeat_ext"></block>
+	  --->
+<!--	  
+      <block type="text"></block>
+      <block type="text_print"></block>
+-->
+
+<category name="Entradas/Saídas">
+  <block type="pinos_in_pullup"></block>
+    <block type="pinos_output"></block>
+
+<block type="define_estado_saida"></block>
+</category>
+
+      <category name="Matematica">
+		  <block type="math_number"></block>
+		  <block type="math_arithmetic"></block>
+	  </category>
+
+      <category name="Variaveis">
+		  <block type="variables_get"></block>
+		  <block type="variables_set"></block>
+	  </category>
+
+
+      <category name="Lógica">
+		  <block type="controls_if"></block>
+				
+        <block type="logic_compare"></block>
+		  <block type="logic_boolean"></block>
+		  <block type="logic_negate"></block>		  
+		  <block type="logic_operation"></block>
+	 </category>	     
+		  
+	
+
+	<category name="Laços" colour="210">
+		  <block type="controls_repeat"></block>
+		  <block type="controls_repeat_ext"></block>
+		  <block type="controls_whileUntil"></block>
+		
+				
+    </category>
+
+	<category name="Tempo" colour="120">
+            <block type="atraso_segundos"></block>
+		    <block type="atraso_milisegundos"></block>
+	  </category>
+	  
+	
+			
+
+     
+     
+
+    </xml>
+
+    
+  </body>
+</html>
